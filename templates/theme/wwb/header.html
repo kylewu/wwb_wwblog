@@ -1,0 +1,46 @@
+{% load wwb_fun %}
+
+<!-- begin header -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="distribution" content="global" />
+<meta name="robots" content="follow, all" />
+<meta name="language" content="en, zh-CN" />
+
+<title>{% block title %}{% endblock %} --{% wwb_bloginfo 'name' %}--</title>
+<meta name="generator" content="WWB {% wwb_bloginfo 'version' %}" />
+<!-- leave this for stats please -->
+
+<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{% wwb_bloginfo 'rss_url' %}" />
+<link rel="alternate" type="text/xml" title="RSS .92" href="{% wwb_bloginfo 'rss_url' %}" />
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="{% wwb_bloginfo 'rss_url' %}" />
+<link rel="pingback" href="{% wwb_bloginfo 'pingback_url' %}" />
+
+<style type="text/css" media="screen">
+<!-- @import url( /css/wwb/style.css ); -->
+</style>
+</head>
+
+<body>
+
+<div id="header">
+
+	<div class="headerleft">
+		<a href="/">{% wwb_bloginfo 'name' %}</a><br />
+		<b>{% wwb_bloginfo 'description' %}</b>
+	</div>
+	
+	<div class="headerright">
+		<ul>
+			<li><a href="/">Home</a></li>
+			
+			<li><a href="http://www.briangardner.com/demos/about" title="About">About</a></li>
+			
+			<li><a href="{% wwb_bloginfo 'rss_url' %}">RSS</a></li>
+		</ul>
+	</div>
+
+</div>

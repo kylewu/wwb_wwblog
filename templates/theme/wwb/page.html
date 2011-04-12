@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load wwb_fun %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+
+<div id="content">
+
+	<div id="contentleft">
+	
+		{% if post_list %}
+			{% for post in post_list %}
+
+				<h1><a href="{{ post.get_absolute_url }}" rel="bookmark">{{ post.title }}</a></h1>
+				{{ post.content|safe }}<div style="clear:both;"></div>
+				<div class="postinfo">
+					{{ post.create_time|date:"M d" }} | 
+					{% if post.category %} 
+						Filed Under <a href="{{ post.category.get_absolute_url }}">{{post.category.title}}</a>
+						&nbsp;
+						Tags : {%wwb_show_tag_link post%}
+						&nbsp;
+						<a href="{{ post.get_absolute_url}}">{% wwb_show_comment_link post %}</a>
+					{% endif %}
+					&nbsp;
+					{% wwb_show_edit_link post %}
+				</div>
+			
+			{% endfor %}
+		{% else %}
+		
+		<p>Sorry, no posts matched your criteria.</p>
+		
+		{% endif %}
+		
+		<div class="navigation">
+			<div class="alignleft">
+				{% if has_previous %}
+					<a href="/">First Page</a>
+					<a href="/list/post/?page={{ previous }}">Previous Page</a>
+				{% endif %}
+			</div>
+			<div class="alignright">
+				{% if has_next %}
+	        	<a href="/list/post/?page={{ next }}">Next Page</a>
+	        	<a href="/list/post/?page={{ pages }}">Last Page</a>
+	        	{% endif %}
+	        </div>
+		</div>
+		
+		
+	</div>
+	
+{% endblock %}

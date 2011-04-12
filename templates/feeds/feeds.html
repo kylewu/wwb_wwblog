@@ -1,0 +1,37 @@
+{% load wwb_fun %}<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	>
+{% for post in posts %}
+<channel>
+	<title>{% wwb_bloginfo 'name' %}</title>
+	<atom:link href="{% wwb_bloginfo 'atom_url' %}" rel="self" type="application/rss+xml" />
+	<link>{% wwb_bloginfo 'url' %}{{ post.get_absolute_url }}</link>
+	<description>Posts from {% wwb_bloginfo 'name' %}</description>
+	<pubDate>{{ post.create_time|date:"r" }}</pubDate>
+	<generator>{% wwb_bloginfo 'url' %}/feeds</generator>
+	<language>zh-cn</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<item>
+		<title>{{ post.title }}</title>
+		<link>{% wwb_bloginfo 'url' %}{{ post.get_absolute_url }}</link>
+		<comments>{% wwb_bloginfo 'url' %}{{ post.get_absolute_url }}#comments</comments>
+		<pubDate>{{ post.create_time|date:"M d, Y" }}</pubDate>
+		<dc:creator>{{ post.author.nickname }}</dc:creator>
+		
+		<category><![CDATA[Development]]></category>
+
+		<guid isPermaLink="false">{% wwb_bloginfo 'url' %}</guid>
+		<description><![CDATA[ ]]></description>
+		<content:encoded><![CDATA[{{ post.content|safe }}]]></content:encoded>
+
+	</item>
+		
+</channel>
+{% endfor %}
+</rss>

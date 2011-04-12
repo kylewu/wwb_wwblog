@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load wwb_fun %}
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+
+<div id="content">
+
+	<div id="contentleft">
+		
+		<h1>{{ post.title }}</h1>
+		{{ post.content|safe }} <div style="clear:both;"></div>
+	 	
+		<div class="postinfo">
+			{{ post.create_time|date:"M d" }} | 
+			{% if post.category %} 
+				Filed Under <a href="{{ post.category.get_absolute_url }}">{{post.category.title}}</a>
+				&nbsp;
+				Tags : {%wwb_show_tag_link post%}
+			{% endif %}
+			&nbsp;
+			{% wwb_show_edit_link post %}
+		</div>
+		
+		{% if post.category %}
+			<h3>Comments</h3>
+			{% include "comments.html" %}
+			
+		{% endif %}
+		
+	</div>
+	
+{% endblock %}

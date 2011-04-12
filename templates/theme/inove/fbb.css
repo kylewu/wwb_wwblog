@@ -1,0 +1,93 @@
+.fbb img {
+    background: #FFF;
+    }
+
+.fbb img {
+    border: 0;
+    }
+
+.fbb-title {
+    background: #3B5998 url(http://www.flypig.org/fbb-title.gif) no-repeat top left;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 30px;
+    }
+
+.fbb-body {
+    width: 188px !important;
+    padding: 5px;
+    margin: 0;
+    border: #D8DFEA 1px solid;
+    border-top: 0;
+    } 
+    
+#fbb-buddyicon {
+    margin: 0 0 5px 0;
+    clear: both;
+    }
+        
+.fbb table {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    border-collapse:collapse;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    }
+
+.fbb-section {
+    color: #333;
+	font-family: sans-serif;
+    font-weight: bold;
+    padding-top: 5px;
+    }
+
+.fbb-label {
+    color: #888;
+    clear: both;
+    display: block;
+    width: 70px;
+    }
+
+.fbb-data {
+    color: #000;
+    }
+
+.fbb-data a {
+    color: #3B5998;
+    text-decoration: none;
+    }
+
+.fbb-data a:visited {
+    color: #3B5998;
+    text-decoration: none;
+    }
+
+.fbb-data a:hover {
+    color: #3B5998;
+    text-decoration: underline;
+    }
+
+.fbb-powered {
+    color: #CCC;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    width: 190px;
+    text-align: right;
+    }
+
+.fbb-powered a {
+    color: #CCC;
+    text-decoration: none;
+    }
+
+.fbb-powered a:visited {
+    color: #CCC;
+    text-decoration: none;
+    }
+
+.fbb-powered a:hover {
+    color: #CCC;
+    text-decoration: underline;
+    }

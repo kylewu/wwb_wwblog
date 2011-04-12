@@ -1,0 +1,72 @@
+{% load wwb_fun %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="Programming, Python, Django" />
+    <meta name="description" content="{% wwb_bloginfo 'description' %}" />
+    <title>{% block title %}{{ type }} {{ cort.title }} {{ post.title }} {% endblock %}--{% wwb_bloginfo 'name' %}--</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{% wwb_bloginfo 'rss_url' %}" />
+    <link rel="alternate" type="text/xml" title="RSS .92" href="{% wwb_bloginfo 'rss_url' %}" />
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="{% wwb_bloginfo 'rss_url' %}" />
+    <link rel="pingback" href="{% wwb_bloginfo 'pingback_url' %}" />
+    <!-- style -->
+    <style type="text/css" media="screen">
+        @import url( '/theme/style.css' );
+		@import url( '/theme/fbb.css' );
+    </style>
+    <!-- script -->
+    <script type="text/javascript" src="/theme/js/menu.js"></script>
+    <script type="text/javascript" src="/theme/js/util.js"></script>
+
+</head>
+<body>
+    <!-- wrap START -->
+    <div id="wrap">
+        <!-- container START -->
+        <div id="container">
+            <!-- header START -->
+            <div id="header">
+                <div id="caption">
+                    <h1 id="title"><a href="/">{% wwb_bloginfo 'name' %}</a></h1>
+                    <div id="tagline">
+                        {% wwb_bloginfo 'description' %}
+                    </div>
+                </div>
+                <!-- navigation START -->
+                <div id="navigation">
+                    <ul id="menus">
+                        <li class="current_page_item"><a class="home" title="Home" href="/">Home</a></li>
+                        <li class="page_item"><a class="page_item" title="NKU" href="http://code.google.com/p/wwb-projects/">Download</a></li>
+                        <li class="page_item"><a class="page_item" title="NKU" href="http://www.nankai.edu.cn">NKU</a></li>
+						<li class="page_item"><a class="page_item" title="NKU" href="http://wwb.appspot.com/page/2401/">VIM</a></li>
+						<li class="page_item"><a class="page_item" title="NKU" href="http://wwb.appspot.com/page/2402/">Ubuntu</a></li>
+                        <li class="page_item"><a class="page_item" title="About" href="/about">About</a></li>
+                        <li><a class="lastmenu" href="javascript:void(0);"></a></li>
+                    </ul>
+<!-- searchbox START 
+					<div id="searchbox">
+						<form action="/" method="get">
+							<div class="content">
+							<input type="text" class="textfield" name="s" size="24" value="To search, type and hit enter" onfocus="if (this.value == 'To search, type and hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'To search, type and hit enter';}"/>
+							<a class="switcher" >Search</a>
+							</div>
+						</form>
+					</div>
+searchbox END -->
+                    <div class="fixed"></div>
+                </div>
+                <!-- navigation END -->
+                <div class="fixed"></div>
+            </div>
+            <!-- header END -->
+            <!-- content START -->
+            <div id="content">
+                <!-- main START -->
+                <div id="main">
+                    <div class="post" id="notice">
+                        <div class="content">
+                            
+                            <div class="fixed"></div>
+                        </div>
+                    </div>

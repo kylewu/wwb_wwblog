@@ -1,0 +1,62 @@
+{% load wwb_fun %}
+
+{% if post.category %}
+<div id="comments">
+    <div id="commentlist">
+        <!-- comments START -->
+        <ol id="thecomments">
+            {% ifequal post.comments.count 0 %}
+            	<li class="messagebox">No comments yet. </li>
+            {% else %}
+	            <li class="messagebox">{{ post.comments.count }} comments. </li>
+	            {% for comment in post.comments %}
+		            <li class="comment admincomment" id="comment-{{ comment.key.id }}">
+		                <div class="author">
+		                    <div class="name">
+		                        <span id="commentauthor-{{ comment.key.id }}">{{ comment.author.nickname }} </span>
+		                    </div>
+		                </div>
+		                <div class="info">
+		                    <div class="date">
+		                        {{ comment.create_time|date:"M d" }}
+		                    </div>
+		                    <div class="act">
+		                        {% wwb_show_edit_link comment %}
+		                    </div>
+		                    <div class="fixed"></div>
+		                    <div class="content">
+		                        <div id="commentbody-{{ comment.key.id }}">
+		                            {{ comment.content|safe }}
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="fixed"></div>
+		            </li>
+	            {% endfor %} 
+            {% endifequal %}
+        </ol>
+        <!-- comments END -->
+    </div>
+</div>
+
+{% if user %}
+	<div class="row">
+	    Logged in as {{ user.nickname }}. <a href="/logout" title="Log out of this account">Logout &raquo;</a>
+	</div>
+	<form action="" method="post" id="commentform">
+		<div id="respond">
+		    <div class="row">
+		        {{ form.as_table }}
+		    </div>
+		    <div id="submitbox">
+		        <input name="" id="submit" type="submit" value="Submit" alt="Post my comment" />
+		    </div>
+		    <div class="fixed">
+		    </div>
+		</div>
+	</form>
+{% else %}
+	<div id="comment_login" class="messagebox">
+	    You must be <a href="/login">logged in</a> to post a comment.
+	</div>
+{% endif %} {% endif %} 

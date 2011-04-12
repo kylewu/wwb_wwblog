@@ -1,0 +1,39 @@
+{% extends "base.html" %} 
+{% load wwb_fun %} 
+
+{% block title %}
+{{ post.title }}
+{% endblock %} 
+
+{% block content %}
+<div id="postpath">
+    <a title="Goto homepage" href="/">Home</a> {% if post.category %}&gt; {{ post.category.title }}{% endif %} &gt; {{ post.title }}
+</div>
+<div class="post" id="post-{{ post.key.id }}">
+    <h2>{{ post.title }}</h2>
+    <div class="info">
+        <span class="date">{{ post.create_time|date:"M d, Y" }}</span>
+        <div class="act">
+            {% if post.category %} 
+            <span class="comments"><a href="#comments">Goto comments</a></span>
+            	{% if user %}<span class="addcomment"><a href="#respond">Leave a comment</a></span>{% endif %} 
+            {% endif %} 
+            {% wwb_show_edit_link post %}
+            <div class="fixed"></div>
+        </div>
+        <div class="fixed"></div>
+    </div>
+    <div class="content">
+        {{ post.content|safe }}
+        <p class="under">
+            {% if post.category %} 
+            	<span class="categories"><a href="{{ post.category.get_absolute_url }}">{{post.category.title}}</a></span> <span class="tags">{% wwb_show_tag_link post %}</span>
+            {% endif %}
+        </p>
+        <div class="fixed"></div>
+    </div>
+</div>
+{% if post.category %} 
+	{% include 'comments.html' %} 
+{% endif %} 
+{% endblock %}

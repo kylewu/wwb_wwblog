@@ -1,0 +1,88 @@
+{% load wwb_fun %}
+
+<!-- begin l_sidebar -->
+
+<div id="l_sidebar">
+
+	<ul id="l_sidebarwidgeted">
+	
+	<li id="RecentlyWritten">
+	<h2>Recently Written</h2>
+		<ul>
+			{% wwb_list_post %}
+		</ul>
+	</li>
+
+	<li id="Categories">
+	<h2>Categories</h2>
+		<ul>
+			{% wwb_list_category %}
+		</ul>
+	</li>
+		
+	<li id="Tags">
+	<h2>Tags</h2>
+		<ul>
+			{% wwb_list_tag %}
+		</ul>
+	</li>
+	
+	<li id="Admin">
+	<h2>Admin</h2>
+		<ul>
+			{% wwb_list_admin %}
+			<li><a href="/_ah/admin">Database</a></li>
+			<li><a href="http://wordpress.org/">WordPress</a></li>
+			<li><a href="http://validator.w3.org/check?uri=referer">XHTML</a></li>
+		</ul>
+	
+	</li>
+	</ul>
+	
+</div>
+
+<!-- end l_sidebar -->
+
+<!-- begin r_sidebar -->
+
+<div id="r_sidebar">
+
+	<ul id="r_sidebarwidgeted">
+	
+		<li id="Search">
+		<form method="get" id="search_form" action="/">
+		<input type="text" class="search_input" value="To search, type and hit enter" name="s" id="s" onfocus="if (this.value == 'To search, type and hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'To search, type and hit enter';}" />
+		<input type="hidden" id="searchsubmit" value="Search" /></form><br />
+		</li>
+	
+		<li id="About">
+		<h2>About</h2>
+			<p>My name is Wu Wenbin. Now, I'm learning in college. My Email : wenbin87 [at] gmail.com</p>
+		</li>
+		
+		<li id="RecentComments">
+		<h2>Recent Comments</h2>
+			<ul>
+				{% wwb_list_comment %}
+			</ul>
+		</li>
+		
+		<li id="Pages">
+		<h2>Pages</h2>
+			<ul>
+				{% wwb_list_page %}
+			</ul>
+		</li>
+		
+		<li id="Links">
+		<h2>Links</h2>
+			<ul>
+				{% wwb_list_link %}
+			</ul>
+		</li>
+		
+	</ul>
+			
+</div>
+
+<!-- end r_sidebar -->

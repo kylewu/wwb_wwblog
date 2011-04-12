@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load wwb_fun %} 
+
+{% block content %} 
+{% if post_list %} {% for post in post_list %}
+<div class="post" id="post-{{ post.key.id }}">
+    <h2><a class="title" href="{{ post.get_absolute_url }}" rel="bookmark">{{ post.title }}</a></h2>
+    <div class="info">
+        <span class="date">{{ post.create_time|date:"M d, Y" }}</span>
+        <div class="act">
+            <span class="comments"><a href="{{ post.get_absolute_url}}">{% wwb_show_comment_link post %}</a></span> {% wwb_show_edit_link post %}
+            <div class="fixed"></div>
+        </div>
+        <div class="fixed"></div>
+    </div>
+    <div class="content">
+        {{ post.content|safe }}
+        <p class="under">
+            <span class="categories"><a href="{{ post.category.get_absolute_url }}">{{post.category.title}}</a></span>
+            <span class="tags">{%wwb_show_tag_link post%}</span>
+        </p>
+        <div class="fixed">
+        </div>
+    </div>
+</div>
+{% endfor %} {% else %}
+<div class="errorbox">
+    Sorry, no posts matched your criteria.
+</div>
+{% endif %}
+<div id="pagenavi">
+    {% if has_previous %} 
+	    <span class="newer"><a href="/">First Page</a></span> 
+	    <span class="newer"><a href="/list/post/?page={{ previous }}">Previous Page</a></span>
+    {% endif %} 
+    {% if has_next %} 
+	    <span class="older"><a href="/list/post/?page={{ next }}">Next Page</a></span>
+		<span class="older"><a href="/list/post/?page={{ pages }}">Last Page</a></span> 
+	{% endif %}
+    <div class="fixed"></div>
+</div>
+{% endblock %} 

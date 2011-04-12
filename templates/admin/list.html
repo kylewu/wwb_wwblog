@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<ul>
+{% for obj in obj_list %}
+	<li>{{ obj.title }} <a href='{{obj.get_absolute_url}}del'>Del</a>
+	</li>
+{% endfor %}
+</ul>
+{% if has_previous %} 
+	    <a href="/admin/{{ type }}">First Page</a></span> 
+	    <a href="/admin/{{ type }}/?page={{ previous }}">Previous Page</a></span>
+    {% endif %} 
+    {% if has_next %} 
+	    <a href="/admin/{{ type }}/?page={{ next }}">Next Page</a></span>
+		<a href="/admin/{{ type }}/?page={{ pages }}">Last Page</a></span> 
+	{% endif %}
+{% endblock %}

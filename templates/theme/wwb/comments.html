@@ -1,0 +1,37 @@
+{% load wwb_fun %}
+<div id="commentblock">
+
+	<p id="comments"><b>{% wwb_show_comment_link post %} to &#8220;{{ post.title }}&#8221;</b></p>
+
+	{% ifnotequal post.comments.count 0 %}
+		
+		<ol class="commentlist">
+	
+		{% for comment in post.comments %}
+			<li class="{% cycle 'alt','' %}" id="comment-{{ comment.key.id }}">
+				{{ comment.author.nickname }} on
+				{{ comment.create_time|date:"M d" }} {% wwb_show_edit_link comment %}
+				<div class="commenttext">
+					{{ comment.content|safe }}
+				</div>
+			</li>
+		{% endfor %}
+	
+		</ol>
+	{% endifnotequal %}
+
+	<p id="respond"><b>Leave a Reply</b></p>
+	{% if user %}
+		<p>Logged in as {{ user.nickname }}. <a href="/logout" title="Log out of this account">Logout &raquo;</a></p>
+		<form action="" method="post" id="commentform">
+			<table width=800>
+	    	{{ form.as_table }}
+	    	</table>
+			<p><input name="" type="submit" value="Submit"  alt="Post my comment" /></p>
+		</form>
+		
+	{% else %}
+		<p>You must be <a href="/login/">logged in</a> to post a comment.</p>
+	{% endif %}
+	
+</div>
